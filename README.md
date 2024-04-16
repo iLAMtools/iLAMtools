@@ -1,10 +1,14 @@
-# iLAMtools package to support data collection/analysis from the [iLAM](https://daytonjn.github.io/ilam/).
+# iLAMtools
 
-iLAMtools is a package designed to support the image processing and analysis of data collected by the imaging Locomotor Activity Monitor (iLAM) system. The iLAM is a tool to record and quantify activity patterns of large-bodied insects. The [iLAM](https://daytonjn.github.io/ilam/) webpage provides detailed instructions on how to build and program your own iLAM system.
+iLAMtools is a package designed to support the processing and analysis of images captured by the **i**maging **L**ocomotor **A**ctivity **M**onitor (**iLAM**) system.
+
+The iLAM is a tool to record and quantify activity patterns of large-bodied insects.
+
+Detailed instructions on how to build and program your own system are provided on the [iLAM](https://daytonjn.github.io/ilam/) webpage.
 
 To install iLAMtools:
 
-```r
+``` r
 library(devtools)
 install_github("daytonjn/iLAMtools")
 ```
