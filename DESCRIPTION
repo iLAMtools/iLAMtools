@@ -1,18 +1,17 @@
 Package: iLAMtools
-Title: imaging Locomotor Activity Monitor processing tools
+Title: iLAM tools
 Version: 0.0.1
 Authors@R: 
     person("Jacob", "Dayton", , "jacob.dayton@tufts.edu", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Tools to perform basic image substraction on consecutive imagers and then convert movements into a DAM format.
+           comment = c(ORCID = "0000-0002-0989-8481"))
+Description: Helpful functions to process/analyze images captured by imaging Locomotor Activity Monitors.
 License: `use_mit_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-Dependcies:
-  imager,
-  magrittr
 Imports:
+  imager,
+  magrittr,
 	reshape2,
 	tibble,
 	tidyr,
