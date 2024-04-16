@@ -1,6 +1,6 @@
 Package: iLAMtools
 Title: imaging Locomotor Activity Monitor processing tools
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Jacob", "Dayton", , "jacob.dayton@tufts.edu", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
@@ -10,7 +10,6 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Imports:
-	magick,
 	imager,
 	reshape2,
 	tibble,
@@ -19,11 +18,8 @@ Imports:
 	lubridate,
 	readr,
 	stringr,
-	plotrix,
-	behavr,
-	ggetho,
-	damr,
-	sleepr,
-	zeitgebr
+	plotrix
+Suggests:
+  magick
 URL: https://github.com/daytonjn/iLAMtools
 BugReports: https://github.com/daytonjn/iLAMtools/issues

@@ -10,5 +10,5 @@ To install iLAMtools:
 
 ``` r
 library(devtools)
-install_github("daytonjn/iLAMtools")
+devtools::install_github("daytonjn/iLAMtools")
 ```

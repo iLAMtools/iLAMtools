@@ -10,6 +10,13 @@
 make_gif <- function(out_file_name,
                      pi_sub_folder){
 
+  if (!requireNamespace("magick", quietly = TRUE)) {
+    stop(
+      "Package \"magick\" must be installed to use this make_gif() function.",
+      call. = FALSE
+    )
+  }
+
   gif_images = vector()
 
   for (f in list.files(paste0("./mvmnt_", pi_sub_folder),
