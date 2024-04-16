@@ -1,0 +1,26 @@
+Package: iLAMtools
+Title: imaging Locomotor Activity Monitor processing tools
+Version: 0.0.0.9000
+Authors@R: 
+    person("Jacob", "Dayton", , "jacob.dayton@tufts.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Tools to perform basic image substraction on consecutive imagers and then convert movements into a DAM format.
+License: `use_mit_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports:
+	imager,
+	reshape2,
+	tibble,
+	dplyr,
+	plyr,
+	lubridate,
+	readr,
+	stringr,
+	plotrix,
+	behavr,
+	ggetho,
+	damr,
+	sleepr,
+	zeitgebr
