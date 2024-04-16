@@ -10,6 +10,12 @@ filter_nblobs(by_change)
 Converts a "by_change" input and outputs a data frame containing total blobs/movements to be used as input for make_dam_file()
 }
 \examples{
-# out <- find_movements(files = file_names,n_max = 75000,find_thr = T,type_thr = "absolute",p_sample = 0.2,channel = "grayscale", animal = "white")
+# out <- find_movements(files = file_names,
+n_max = 75000,
+find_thr = T,
+type_thr = "absolute",
+p_sample = 0.2,
+channel = "grayscale",
+animal = "white")
 
 }
