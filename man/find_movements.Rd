@@ -24,6 +24,14 @@ find_movements(
 }
 \arguments{
 \item{files}{a vector of file names}
+
+\item{x_left}{a number for leftmost crop boundary}
+
+\item{x_right}{a number for rightmost crop boundary}
+
+\item{y_bot}{a number for bottom crop boundary}
+
+\item{y_top}{a number for top crop boundary}
 }
 \description{
 This function identifies all "blobs" or movements between consecutive images

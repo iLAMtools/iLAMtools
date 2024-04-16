@@ -2,6 +2,11 @@
 #'
 #' This function identifies all "blobs" or movements between consecutive images
 #' @param files a vector of file names
+#' @param x_left a number for leftmost crop boundary
+#' @param x_right a number for rightmost crop boundary
+#' @param y_bot a number for bottom crop boundary
+#' @param y_top a number for top crop boundary
+#'
 #' @export
 #' @examples
 #' # out <- find_movements(files = file_names,n_max = 75000,find_thr = T,type_thr = "absolute",p_sample = 0.2,channel = "grayscale", animal = "white")
