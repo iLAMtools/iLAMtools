@@ -17,5 +17,9 @@ parse_movements(file_mvmnts, start_photophase, end_photophase)
 Parse .csv containing the movements output by find_movement()
 }
 \examples{
-# by_change <- parse_movements(file_mvmnts = paste0("Onub_fhlbnd_202308",".csv"), start_photophase = 2, end_photophase = 14)
+\dontrun{
+# by_change <- parse_movements(file_mvmnts = paste0("Onub_fhlbnd_202308",".csv"),
+# start_photophase = 2,
+# end_photophase = 14)
+}
 }

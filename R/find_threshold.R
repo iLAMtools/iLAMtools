@@ -3,8 +3,16 @@
 #' This function is called within find_movements()
 #' @export
 #' @examples
-#'  pix_diff <- find_threshold(files=files[1:(0.5*length(files))], p_sample=p_sample,n_blr=n_blr, n_thr=n_thr,x_left=x_left, x_right=x_right,y_bot=y_bot, y_top=y_top,channel=channel, animal=animal)
-#'
+#' \dontrun{
+#'  pix_diff <- find_threshold(files=files[1:(0.5*length(files))],
+#'  p_sample=p_sample,
+#'  n_blr=3,
+#'  n_thr=0.998,
+#'  x_left=x_left, x_right=x_right,
+#'  y_bot=y_bot, y_top=y_top,
+#'  channel=channel, animal=animal)
+#'  }
+
 find_threshold <- function(files,                                       # list of file names
                            p_sample = 0.05,                # percent of images to sample ***
                            n_thr = 0.999,                      # n_threshold integer (e.g., 0.996 == "0.4%" )

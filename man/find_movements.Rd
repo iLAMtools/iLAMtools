@@ -37,6 +37,13 @@ find_movements(
 This function identifies all "blobs" or movements between consecutive images
 }
 \examples{
-# out <- find_movements(files = file_names,n_max = 75000,find_thr = T,type_thr = "absolute",p_sample = 0.2,channel = "grayscale", animal = "white")
-
+\dontrun{
+# out <- find_movements(files = file_names,
+# n_max = 75000,
+# find_thr = T,
+# type_thr = "absolute",
+# p_sample = 0.2,
+# channel = "grayscale",
+# animal = "white")
+}
 }

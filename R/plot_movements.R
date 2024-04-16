@@ -17,8 +17,8 @@ pi.pix <- list.files(pi_sub_folder, pattern= "*.jpg", full.names = TRUE)[-(1:3)]
 
 by_change_pi = by_change
 
-by_change_pi <- by_change_pi %>% filter(pi == pi_sub_folder) %>%
-  filter(time %in% unique(by_change$time)[-(1:3)])
+by_change_pi <- by_change_pi %>% dplyr::filter(pi == pi_sub_folder) %>%
+  dplyr::filter(time %in% unique(by_change$time)[-(1:3)])
 
 dir.create(path=paste0("mvmnt_", pi_sub_folder),
            showWarnings = FALSE)
@@ -27,7 +27,7 @@ for (i in 1:20){
           graphics::par(mfrow=c(1,1))
           grDevices::jpeg(file=paste0("mvmnt_", pi_sub_folder, "/time", sprintf("%03d", i), ".jpg"),
               width=x_right-x_left, height=1944) #use png() if high-res desired
-          load.image(pi.pix[i+1]) %>% #initially this was pi.pix[i+1]
+          imager::load.image(pi.pix[i+1]) %>% #initially this was pi.pix[i+1]
             imager::imsub(x %inr% c(x_left,x_right),
                   y %inr% c(y_bot,y_top)) %>%
             graphics::plot(xlim = c(0,x_right-x_left), ylim = c(0, y_top-y_bot), axes=FALSE)

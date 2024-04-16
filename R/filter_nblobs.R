@@ -3,9 +3,6 @@
 #' Converts a "by_change" input and outputs a data frame containing total blobs/movements to be used as input for make_dam_file()
 #'
 #' @export
-
-#set of functions that take a "by_change" input and output a data frame to be used as input for make_dam_file()
-
 filter_nblobs <- function(by_change) { #data frame to use
 
     compare_df <- dplyr::filter(by_change, s>0 & s<2000000 & !is.na(s)) %>% #use group_by("pi")

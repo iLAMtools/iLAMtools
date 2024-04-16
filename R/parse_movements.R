@@ -6,7 +6,11 @@
 #' @param end_photophase a number for the time that photophase ended in standard time
 #' @export
 #' @examples
-#' # by_change <- parse_movements(file_mvmnts = paste0("Onub_fhlbnd_202308",".csv"), start_photophase = 2, end_photophase = 14)
+#' \dontrun{
+#' # by_change <- parse_movements(file_mvmnts = paste0("Onub_fhlbnd_202308",".csv"),
+#' # start_photophase = 2,
+#' # end_photophase = 14)
+#' }
 
 #Function to parse .csv listing the movements identified by find_movement()
 #Requires file name, starting hour of photophase, ending hour of photophase

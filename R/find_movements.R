@@ -9,8 +9,15 @@
 #'
 #' @export
 #' @examples
-#' # out <- find_movements(files = file_names,n_max = 75000,find_thr = T,type_thr = "absolute",p_sample = 0.2,channel = "grayscale", animal = "white")
-#'
+#' \dontrun{
+#' # out <- find_movements(files = file_names,
+#' # n_max = 75000,
+#' # find_thr = T,
+#' # type_thr = "absolute",
+#' # p_sample = 0.2,
+#' # channel = "grayscale",
+#' # animal = "white")
+#' }
 find_movements <- function(files,
                            n_thr = 0.996,
                            n_cln = 5,
