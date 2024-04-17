@@ -24,7 +24,7 @@ parse_movements <- function(file_mvmnts,
                             y = col_number())) %>%
     tidyr::separate(d, c("pi", "date", "est"), sep="\\.") %>%
     subset(is.na(pi) == F) %>%
-    dyplyr::mutate(sec = "00", year = "2022") %>%
+    dplyr::mutate(sec = "00", year = "2022") %>%
     tidyr::separate(est, sep = -2, into = c("hour", "min")) %>%
     tidyr::separate(date, sep = -2, into = c("month", "day")) %>%
     tidyr::unite("hms", c(hour, min, sec), sep = ":") %>%
