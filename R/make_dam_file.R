@@ -26,7 +26,7 @@ make_dam_file <- function(by_frame, #data frame to use
     tidyr::separate(date, sep = -8, into = c("date","time")) %>%
     tidyr::separate(date, into = c(NA, NA, "day"), extra = "drop") %>%
     tibble::add_column(index = 1:(nrow(by_frame)/length(unique(by_frame$pi))), .before = "day") %>%
-    tibble::add_column(month = stringr::str_sub(lubridate::months(unique(by_frame$time)), 0, 3),
+    tibble::add_column(month = stringr::str_sub(months(unique(by_frame$time)), 0, 3),
                        year = stringr::str_sub(lubridate::year(unique(by_frame$time)),-2), .before = "time") %>%
     tidyr::unite("date", day:year, sep = " ")
 
