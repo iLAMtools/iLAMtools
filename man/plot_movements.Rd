@@ -5,12 +5,14 @@
 \title{Draw movements}
 \usage{
 plot_movements(
+  file_names,
   pi_sub_folder,
   by_change,
   x_left = 0,
   x_right = 2592,
   y_bot = 0,
-  y_top = 1944
+  y_top = 1944,
+  n_max = 75000
 )
 }
 \arguments{

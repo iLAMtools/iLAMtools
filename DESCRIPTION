@@ -22,6 +22,8 @@ Imports:
     stats,
     zoo,
     lubridate,
-    magick
+    magick,
+    grDevices,
+    graphics
 URL: https://github.com/daytonjn/iLAMtools
 BugReports: https://github.com/daytonjn/iLAMtools/issues
