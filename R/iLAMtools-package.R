@@ -6,6 +6,7 @@
 #' @importFrom graphics title
 #' @importFrom grDevices dev.off
 #' @importFrom grDevices jpeg
+#' @importFrom imager %inr%
 #' @importFrom imager load.image
 #' @importFrom imager threshold
 #' @importFrom lubridate hour
