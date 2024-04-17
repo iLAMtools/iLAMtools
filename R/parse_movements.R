@@ -30,9 +30,9 @@ parse_movements <- function(file_mvmnts,
     tidyr::unite("hms", c(hour, min, sec), sep = ":") %>%
     tidyr::unite("ymd", c(year, month, day), sep = ".") %>%
     tidyr::unite("time", c(ymd, hms), sep = " ") %>%
-    dplyr::mutate(time = ymd_hms(time)) %>%
+    dplyr::mutate(time = lubridate::ymd_hms(time)) %>%
     dplyr::mutate(treatment =
-             ifelse(hour(time) >= start_photophase &
-                    hour(time) < end_photophase,
+             ifelse(lubridate::hour(time) >= start_photophase &
+                    lubridate::hour(time) < end_photophase,
                     "L", "D"))}
 

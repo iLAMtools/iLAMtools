@@ -20,7 +20,8 @@ Imports:
     plotrix,
     rlang,
     stats,
-    zoo
+    zoo,
+    lubridate
 Suggests:
   magick
 URL: https://github.com/daytonjn/iLAMtools

@@ -2,6 +2,8 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @importFrom lubridate hour
+#' @importFrom lubridate ymd_hms
 #' @importFrom rlang :=
 #' @importFrom stats quantile
 #' @importFrom stats sd
