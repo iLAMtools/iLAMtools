@@ -97,7 +97,7 @@ find_movements <- function(files,
         pixs <- (diff > n_thr)
       }
 
-      { setTimeLimit(45) # stops automatically after 30s (it shouldn't take that long)
+      { setTimeLimit(60) # stops automatically after 30s (it shouldn't take that long)
         pixs <- pixs %>%
           imager::shrink(n_cln) %>%
           imager::grow(n_grw*n_cln) }
@@ -159,7 +159,7 @@ find_movements <- function(files,
         pixs <- (diff > n_thr)
       }
 
-      { setTimeLimit(20) # stops automatically after 30s (it shouldn't take that long)
+      { setTimeLimit(60) # stops automatically after 30s (it shouldn't take that long)
         pixs <- pixs %>%
           imager::shrink(n_cln) %>%
           imager::grow(n_grw*n_cln) }
@@ -222,7 +222,7 @@ find_movements <- function(files,
         pixs <- (diff > n_thr)
       }
 
-      { setTimeLimit(20) # stops automatically after 30s (it shouldn't take that long)
+      { setTimeLimit(60) # stops automatically after 30s (it shouldn't take that long)
         pixs <- pixs %>%
           imager::shrink(n_cln) %>%
           imager::grow(n_grw*n_cln) }
@@ -285,7 +285,7 @@ find_movements <- function(files,
         pixs <- (diff > n_thr)
       }
 
-      { setTimeLimit(20) # stops automatically after 30s (it shouldn't take that long)
+      { setTimeLimit(60) # stops automatically after 30s (it shouldn't take that long)
         pixs <- pixs %>%
           imager::shrink(n_cln) %>%
           imager::grow(n_grw*n_cln) }
