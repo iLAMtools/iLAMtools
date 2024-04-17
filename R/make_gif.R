@@ -23,13 +23,13 @@ make_gif <- function(out_file_name,
                        pattern="*.jpg",
                        full.names = TRUE)) {
 
-    gif_images <- append(gif_images, magick::image_read(f))
+    gif_images <- append(gif_images, image_read(f))
 
   }
 
-  gif <-magick::image_animate(image_scale(gif_images, "900x800"),
+  gif <-image_animate(image_scale(gif_images, "900x800"),
                       fps = 1, dispose = "previous")
 
-  magick::image_write(gif, paste0(out_file_name, "_",pi_sub_folder, ".gif"))
+  image_write(gif, paste0(out_file_name, "_",pi_sub_folder, ".gif"))
 
 }

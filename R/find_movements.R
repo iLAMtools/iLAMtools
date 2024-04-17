@@ -63,23 +63,23 @@ find_movements <- function(files,
 
   n <- length(files) # number of images we have to look at is called n
 
-  mvmt <- tibble::tibble(s = NA,
+  mvmt <- tibble(s = NA,
                          x = NA,
                          y = NA,
                          d = NA)
 
-  blnk <- tibble::tibble(s = 0,
+  blnk <- tibble(s = 0,
                          x = NA,
                          y = NA)
 
   time_prev <- files[1]
 
   if (channel == "R" | channel == "red") {
-    prev <- imager::load.image(time_prev) %>% imager::R() %>% imager::isoblur(sigma = n_blr)
+    prev <- load.image(time_prev) %>% imager::R() %>% imager::isoblur(sigma = n_blr)
     i <- 1
     while (i <= (n-1)) {
       time_post <- files[i+1]
-      post <- imager::load.image(time_post) %>% imager::R() %>% imager::isoblur(sigma = n_blr)
+      post <- load.image(time_post) %>% imager::R() %>% imager::isoblur(sigma = n_blr)
 
       if (animal == "black") { # if animal is black on white background, white pixels are PRESENT in post and ABSENT in prev
         diff <- (prev - post) %>%
@@ -105,7 +105,7 @@ find_movements <- function(files,
       if (sum(pixs) > 0 & sum(pixs) < n_max) { # white pixels of interest must be >0 and <75000 (too noisy)
         splt <- pixs %>% imager::split_connected() # returns discrete blobs of connected pixels
         if (length(splt) > 0) { # number of discrete movements ("blobs") must be > 0
-          blbs <- tibble::tibble(s = rep(NA, length(splt)),
+          blbs <- tibble(s = rep(NA, length(splt)),
                                  x = rep(NA, length(splt)),
                                  y = rep(NA, length(splt)),
                                  d = rep(NA, length(splt)))
@@ -124,7 +124,7 @@ find_movements <- function(files,
           mvmt <- rbind(mvmt, blbs)
         } else { mvmt <- rbind(mvmt, cbind(blnk, d = time_post)) }
       } else if (sum(pixs) >= n_max) { # image is noisy, we assign 2000000 to remove later
-        blbs <- tibble::tibble(s = 2000000,
+        blbs <- tibble(s = 2000000,
                                x = 0,
                                y = 0,
                                d = time_post)
@@ -137,11 +137,11 @@ find_movements <- function(files,
       suppressWarnings(rm(diff, pixs, splt, blbs, post))
     }}
   else if (channel == "G" | channel == "green") {
-    prev <- imager::load.image(time_prev) %>% imager::G() %>% imager::isoblur(sigma = n_blr)
+    prev <- load.image(time_prev) %>% imager::G() %>% imager::isoblur(sigma = n_blr)
     i <- 1
     while (i <= (n-1)) {
       time_post <- files[i+1]
-      post <- imager::load.image(time_post) %>% imager::G() %>% imager::isoblur(sigma = n_blr)
+      post <- load.image(time_post) %>% imager::G() %>% imager::isoblur(sigma = n_blr)
 
       if (animal == "black") { # if animal is black on white background, white pixels are PRESENT in post and ABSENT in prev
         diff <- (prev - post) %>%
@@ -167,7 +167,7 @@ find_movements <- function(files,
       if (sum(pixs) > 0 & sum(pixs) < n_max) { # white pixels of interest must be >0 and <75000 (too noisy)
         splt <- pixs %>% imager::split_connected() # returns discrete blobs of connected pixels
         if (length(splt) > 0) { # number of discrete movements ("blobs") must be > 0
-          blbs <- tibble::tibble(s = rep(NA, length(splt)),
+          blbs <- tibble(s = rep(NA, length(splt)),
                                  x = rep(NA, length(splt)),
                                  y = rep(NA, length(splt)),
                                  d = rep(NA, length(splt)))
@@ -186,7 +186,7 @@ find_movements <- function(files,
           mvmt <- rbind(mvmt, blbs)
         } else { mvmt <- rbind(mvmt, cbind(blnk, d = time_post)) }
       } else if (sum(pixs) >= n_max) { # image is noisy, we assign 2000000 to remove later
-        blbs <- tibble::tibble(s = 2000000,
+        blbs <- tibble(s = 2000000,
                                x = 0,
                                y = 0,
                                d = time_post)
@@ -200,11 +200,11 @@ find_movements <- function(files,
     }
   }
   else if (channel == "B" | channel == "blue") {
-    prev <- imager::load.image(time_prev) %>% imager::B() %>% imager::isoblur(sigma = n_blr)
+    prev <- load.image(time_prev) %>% imager::B() %>% imager::isoblur(sigma = n_blr)
     i <- 1
     while (i <= (n-1)) {
       time_post <- files[i+1]
-      post <- imager::load.image(time_post) %>% imager::B() %>% imager::isoblur(sigma = n_blr)
+      post <- load.image(time_post) %>% imager::B() %>% imager::isoblur(sigma = n_blr)
 
       if (animal == "black") { # if animal is black on white background, white pixels are PRESENT in post and ABSENT in prev
         diff <- (prev - post) %>%
@@ -230,7 +230,7 @@ find_movements <- function(files,
       if (sum(pixs) > 0 & sum(pixs) < n_max) { # white pixels of interest must be >0 and <75000 (too noisy)
         splt <- pixs %>% imager::split_connected() # returns discrete blobs of connected pixels
         if (length(splt) > 0) { # number of discrete movements ("blobs") must be > 0
-          blbs <- tibble::tibble(s = rep(NA, length(splt)),
+          blbs <- tibble(s = rep(NA, length(splt)),
                                  x = rep(NA, length(splt)),
                                  y = rep(NA, length(splt)),
                                  d = rep(NA, length(splt)))
@@ -249,7 +249,7 @@ find_movements <- function(files,
           mvmt <- rbind(mvmt, blbs)
         } else { mvmt <- rbind(mvmt, cbind(blnk, d = time_post)) }
       } else if (sum(pixs) >= n_max) { # image is noisy, we assign 2000000 to remove later
-        blbs <- tibble::tibble(s = 2000000,
+        blbs <- tibble(s = 2000000,
                                x = 0,
                                y = 0,
                                d = time_post)
@@ -263,11 +263,11 @@ find_movements <- function(files,
     }
   }
   else {
-    prev <- imager::load.image(time_prev) %>% imager::grayscale() %>% imager::isoblur(sigma = n_blr)
+    prev <- load.image(time_prev) %>% imager::grayscale() %>% imager::isoblur(sigma = n_blr)
     i <- 1
     while (i <= (n-1)) {
       time_post <- files[i+1]
-      post <- imager::load.image(time_post) %>% imager::grayscale() %>% imager::isoblur(sigma = n_blr)
+      post <- load.image(time_post) %>% imager::grayscale() %>% imager::isoblur(sigma = n_blr)
 
       if (animal == "black") { # if animal is black on white background, white pixels are PRESENT in post and ABSENT in prev
         diff <- (prev - post) %>%
@@ -293,7 +293,7 @@ find_movements <- function(files,
       if (sum(pixs) > 0 & sum(pixs) < n_max) { # white pixels of interest must be >0 and <75000 (too noisy)
         splt <- pixs %>% imager::split_connected() # returns discrete blobs of connected pixels
         if (length(splt) > 0) { # number of discrete movements ("blobs") must be > 0
-          blbs <- tibble::tibble(s = rep(NA, length(splt)),
+          blbs <- tibble(s = rep(NA, length(splt)),
                                  x = rep(NA, length(splt)),
                                  y = rep(NA, length(splt)),
                                  d = rep(NA, length(splt)))
@@ -312,7 +312,7 @@ find_movements <- function(files,
           mvmt <- rbind(mvmt, blbs)
         } else { mvmt <- rbind(mvmt, cbind(blnk, d = time_post)) }
       } else if (sum(pixs) >= n_max) { # image is noisy, we assign 2000000 to remove later
-        blbs <- tibble::tibble(s = 2000000,
+        blbs <- tibble(s = 2000000,
                                x = 0,
                                y = 0,
                                d = time_post)

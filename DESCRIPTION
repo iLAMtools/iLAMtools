@@ -21,8 +21,7 @@ Imports:
     rlang,
     stats,
     zoo,
-    lubridate
-Suggests:
-  magick
+    lubridate,
+    magick
 URL: https://github.com/daytonjn/iLAMtools
 BugReports: https://github.com/daytonjn/iLAMtools/issues
