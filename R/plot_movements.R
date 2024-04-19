@@ -32,7 +32,7 @@ plot_movements <- function(file_names,
     jpeg(file=paste0("mvmnt_", pi_sub_folder, "/time", sprintf("%03d", i), ".jpg"),
          width=x_right-x_left, height=1944) #use png() if high-res desired
     load.image(pi.pix[i+1]) %>% #originally this was i+1
-      imsub(x %inr% c(x_left,x_right),
+      imager::imsub(x %inr% c(x_left,x_right),
             y %inr% c(y_bot,y_top)) %>%
       plot(xlim = c(0,x_right-x_left), ylim = c(0, y_top-y_bot), axes=FALSE)
 
