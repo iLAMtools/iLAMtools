@@ -40,6 +40,14 @@ find_movements <- function(files,
                or choose find_thr='F'AND type_thr='relative'")
   }
 
+  if (!requireNamespace("imager", quietly = TRUE)) {
+    stop(
+      "Package \"imager\" must be installed and loaded to use find_movements().",
+      call. = FALSE
+    )
+  }
+
+
   if (find_thr == T & type_thr == "absolute") {
     print("find_thr==T, type_thr==absolute")
     pix_diff <- find_threshold(files=files[1:(0.5*length(files))], p_sample=p_sample,
@@ -59,6 +67,12 @@ find_movements <- function(files,
 
     pix_boot = quantile(bootstrap, 0.99) # 99% value for bootstrap mean ***
     n_thr = pix_boot
+  }
+
+  if (find_thr == F & is.numeric(type_thr) == TRUE) {
+    print("find_thr==F, is.numeric(type_thr) == TRUE")
+    print("User supplied threshold")
+    n_thr = type_thr
   }
 
   n <- length(files) # number of images we have to look at is called n

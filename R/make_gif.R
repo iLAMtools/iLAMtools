@@ -12,7 +12,7 @@ make_gif <- function(out_file_name,
 
   if (!requireNamespace("magick", quietly = TRUE)) {
     stop(
-      "Package \"magick\" must be installed to use this make_gif() function.",
+      "Package \"magick\" must be installed and loaded to use this make_gif() function.",
       call. = FALSE
     )
   }
