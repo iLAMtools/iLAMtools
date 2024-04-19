@@ -67,6 +67,7 @@ find_movements <- function(files,
 
     pix_boot = quantile(bootstrap, 0.99) # 99% value for bootstrap mean ***
     n_thr = pix_boot
+    print(paste("Threshold cut-off for absolute pixel difference:", n_thr))
   }
 
   if (find_thr == F & is.numeric(type_thr) == TRUE) {
@@ -87,6 +88,8 @@ find_movements <- function(files,
                          y = NA)
 
   time_prev <- files[1]
+
+  print("Finding movements now...")
 
   if (channel == "R" | channel == "red") {
     prev <- load.image(time_prev) %>% imager::R() %>% imager::isoblur(sigma = n_blr)

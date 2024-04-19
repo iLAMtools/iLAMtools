@@ -74,6 +74,5 @@ find_threshold <- function(files,                                       # list o
     pix_diff[i] <- quantile(diff, n_thr) # pixel difference value for corresponding n_thr quantile
   }
   print("Completed find_threshold")
-  print(mean(pix_diff))
   return(pix_diff)
 }
