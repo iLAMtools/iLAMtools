@@ -4,11 +4,11 @@ iLAMtools is a package designed to support the processing and analysis of images
 
 The iLAM is a tool to record and quantify activity patterns of large-bodied insects.
 
-Detailed instructions on how to build and program your own system are provided on the [iLAM](https://daytonjn.github.io/ilam/) webpage.
+Detailed instructions on how to build and program your own system are provided on the [iLAM](https://iLAMtools.github.io/) webpage.
 
 To install iLAMtools:
 
 ``` r
 library(devtools)
-devtools::install_github("daytonjn/iLAMtools")
+devtools::install_github("iLAMtools/iLAMtools")
 ```
