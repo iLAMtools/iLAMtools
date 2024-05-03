@@ -2,8 +2,8 @@ Package: iLAMtools
 Title: iLAM tools
 Version: 0.0.1
 Authors@R: 
-    person("Jacob", "Dayton", , "jacob.dayton@tufts.edu", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-0989-8481"))
+    person("first name", "last name", , "email@institution.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "anonymized for review"))
 Description: Helpful functions to process/analyze images captured by imaging Locomotor Activity Monitors.
 License: `use_mit_license()`
 Encoding: UTF-8
@@ -25,5 +25,5 @@ Imports:
     magick,
     grDevices,
     graphics
-URL: https://github.com/daytonjn/iLAMtools
-BugReports: https://github.com/daytonjn/iLAMtools/issues
+URL: https://github.com/iLAMtools/iLAMtools
+BugReports: https://github.com/iLAMtools/iLAMtools/issues
