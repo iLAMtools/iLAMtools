@@ -11,13 +11,13 @@ Helpful functions to process/analyze images captured by imaging Locomotor Activi
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/daytonjn/iLAMtools}
-  \item Report bugs at \url{https://github.com/daytonjn/iLAMtools/issues}
+  \item \url{https://github.com/iLAMtools/iLAMtools}
+  \item Report bugs at \url{https://github.com/iLAMtools/iLAMtools/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Jacob Dayton \email{jacob.dayton@tufts.edu} (\href{https://orcid.org/0000-0002-0989-8481}{ORCID})
+\strong{Maintainer}: first name last name \email{email@institution.edu} (\href{https://orcid.org/anonymized for review}{ORCID})
 
 }
 \keyword{internal}

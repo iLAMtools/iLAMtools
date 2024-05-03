@@ -5,7 +5,7 @@ Authors@R:
     person("first name", "last name", , "email@institution.edu", role = c("aut", "cre"),
            comment = c(ORCID = "anonymized for review"))
 Description: Helpful functions to process/analyze images captured by imaging Locomotor Activity Monitors.
-License: `use_mit_license()`
+License: `MIT`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
