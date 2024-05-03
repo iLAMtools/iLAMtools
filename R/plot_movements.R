@@ -29,13 +29,21 @@ plot_movements <- function(file_names,
 
   for (i in 1:length(pi.pix[1:60])){
     par(mfrow=c(1,1))
-    jpeg(file=paste0("mvmnt_", pi_sub_folder, "/time", sprintf("%03d", i), ".jpg"),
-         width=x_right-x_left, height=1944) #use png() if high-res desired
-    load.image(pi.pix[i+1]) %>% #originally this was i+1
-      imager::imsub(x %inr% c(x_left,x_right),
-            y %inr% c(y_bot,y_top)) %>%
-      plot(xlim = c(0,x_right-x_left), ylim = c(0, y_top-y_bot), axes=FALSE)
+    jpeg(file=paste0("mvmnt_", pi_sub_folder, "/time", sprintf("%03d", i), "test.jpg"),
+         width=x_right-x_left, height=1944)
 
+    #identified an os-dependent issue in the plot function.
+    if(.Platform$OS.type == "unix"){
+      imager::load.image(pi.pix[i+1]) %>% #originally this was i+1
+        imager::imsub(x %inr% c(x_left,x_right),
+                      y %inr% c(y_bot,y_top)) %>%
+        plot(xlim = c(0,x_right-x_left), ylim = c(y_top-y_bot,0), axes=TRUE)
+    } else if(.Platform$OS.type == "windows"){
+      imager::load.image(pi.pix[i+1]) %>% #originally this was i+1
+        imager::imsub(x %inr% c(x_left,x_right),
+                      y %inr% c(y_bot,y_top)) %>%
+        plot(xlim = c(0,x_right-x_left), ylim = c(0,y_top-y_bot), axes=TRUE)
+    }
     title(unique(by_change_pi$time)[i], adj=0.5, line = -3, cex.main = 4)
 
     #Draw circle standards for blob circle ~12800, 3200, 800, 200, 50 pxs
@@ -68,7 +76,7 @@ plot_movements <- function(file_names,
     by_change_t = by_change_pi %>% dplyr::filter(time == unique(by_change_pi$time)[i])
     for (j in 1:nrow(by_change_t)) {
       draw.circle(by_change_t[j,]$x %>% as.integer(),
-                  by_change_t[j,]$y %>% as.integer(),
+                  (by_change_t[j,]$y %>% as.integer()),
                   sqrt(by_change_t[j,]$s/pi),
                   border = 'red',
                   lwd=3)
