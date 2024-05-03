@@ -29,7 +29,7 @@ plot_movements <- function(file_names,
 
   for (i in 1:length(pi.pix[1:60])){
     par(mfrow=c(1,1))
-    jpeg(file=paste0("mvmnt_", pi_sub_folder, "/time", sprintf("%03d", i), "test.jpg"),
+    jpeg(file=paste0("mvmnt_", pi_sub_folder, "/time", sprintf("%03d", i), ".jpg"),
          width=x_right-x_left, height=1944)
 
     #identified an os-dependent issue in the plot function.
@@ -37,12 +37,12 @@ plot_movements <- function(file_names,
       imager::load.image(pi.pix[i+1]) %>% #originally this was i+1
         imager::imsub(x %inr% c(x_left,x_right),
                       y %inr% c(y_bot,y_top)) %>%
-        plot(xlim = c(0,x_right-x_left), ylim = c(y_top-y_bot,0), axes=TRUE)
+        plot(xlim = c(0,x_right-x_left), ylim = c(y_top-y_bot,0), axes=FALSE)
     } else if(.Platform$OS.type == "windows"){
       imager::load.image(pi.pix[i+1]) %>% #originally this was i+1
         imager::imsub(x %inr% c(x_left,x_right),
                       y %inr% c(y_bot,y_top)) %>%
-        plot(xlim = c(0,x_right-x_left), ylim = c(0,y_top-y_bot), axes=TRUE)
+        plot(xlim = c(0,x_right-x_left), ylim = c(0,y_top-y_bot), axes=FALSE)
     }
     title(unique(by_change_pi$time)[i], adj=0.5, line = -3, cex.main = 4)
 
