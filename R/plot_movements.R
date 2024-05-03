@@ -33,53 +33,58 @@ plot_movements <- function(file_names,
          width=x_right-x_left, height=1944)
 
     #identified an os-dependent issue in the plot function.
-    if(.Platform$OS.type == "unix"){
-      imager::load.image(pi.pix[i+1]) %>% #originally this was i+1
-        imager::imsub(x %inr% c(x_left,x_right),
-                      y %inr% c(y_bot,y_top)) %>%
-        plot(xlim = c(0,x_right-x_left), ylim = c(y_top-y_bot,0), axes=FALSE)
-    } else if(.Platform$OS.type == "windows"){
-      imager::load.image(pi.pix[i+1]) %>% #originally this was i+1
-        imager::imsub(x %inr% c(x_left,x_right),
-                      y %inr% c(y_bot,y_top)) %>%
-        plot(xlim = c(0,x_right-x_left), ylim = c(0,y_top-y_bot), axes=FALSE)
-    }
+    imager::load.image(pi.pix[i+1]) %>%
+      imager::imsub(x %inr% c(x_left,x_right),
+                    y %inr% c(y_bot,y_top)) %>%
+      plot(xlim = c(0,x_right-x_left), ylim = c(y_top-y_bot,0), axes=FALSE)
+
     title(unique(by_change_pi$time)[i], adj=0.5, line = -3, cex.main = 4)
 
     #Draw circle standards for blob circle ~12800, 3200, 800, 200, 50 pxs
     draw.circle(75, #x coord
                 75, #y coord
-                sqrt(12800/pi),
+                sqrt(12800/base::pi),
                 border = 'green',
                 lwd=3)
     draw.circle(175, #x coord
                 43, #y coord
-                sqrt(3200/pi),
+                sqrt(3200/base::pi),
                 border = 'green',
                 lwd=3)
     draw.circle(227, #x coord
                 27, #y coord
-                sqrt(800/pi),
+                sqrt(800/base::pi),
                 border = 'green',
                 lwd=3)
     draw.circle(255, #x coord
                 19, #y coord
-                sqrt(200/pi),
+                sqrt(200/base::pi),
                 border = 'green',
                 lwd=3)
     draw.circle(271, #x coord
                 15, #y coord
-                sqrt(50/pi),
+                sqrt(50/base::pi),
                 border = 'green',
                 lwd=3)
 
     by_change_t = by_change_pi %>% dplyr::filter(time == unique(by_change_pi$time)[i])
-    for (j in 1:nrow(by_change_t)) {
-      draw.circle(by_change_t[j,]$x %>% as.integer(),
-                  (by_change_t[j,]$y %>% as.integer()),
-                  sqrt(by_change_t[j,]$s/pi),
-                  border = 'red',
-                  lwd=3)
+
+    if(.Platform$OS.type == "unix"){
+      for (j in 1:nrow(by_change_t)) {
+        draw.circle(by_change_t[j,]$x %>% as.integer(),
+                    (by_change_t[j,]$y %>% as.integer()),
+                    sqrt(by_change_t[j,]$s/base::pi),
+                    border = 'red',
+                    lwd=3)
+      }
+    } else if(.Platform$OS.type == "windows"){
+      for (j in 1:nrow(by_change_t)) {
+        draw.circle(as.integer(by_change_t[j,]$x),
+                    (as.integer(by_change_t[j,]$y)*-1+(y_top-y_bot)),
+                    sqrt(by_change_t[j,]$s/base::pi),
+                    border = 'red',
+                    lwd=3)
+      }
     }
 
     dev.off()
