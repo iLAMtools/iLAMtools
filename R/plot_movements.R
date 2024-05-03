@@ -80,11 +80,18 @@ plot_movements <- function(file_names,
     } else if(.Platform$OS.type == "windows"){
       for (j in 1:nrow(by_change_t)) {
         draw.circle(as.integer(by_change_t[j,]$x),
-                    (as.integer(by_change_t[j,]$y)*-1+(y_top-y_bot)),
+                    (as.integer(by_change_t[j,]$y)),
                     sqrt(by_change_t[j,]$s/base::pi),
                     border = 'red',
                     lwd=3)
       }
+      # for (j in 1:nrow(by_change_t)) {
+      #   draw.circle(as.integer(by_change_t[j,]$x),
+      #               (as.integer(by_change_t[j,]$y)*-1+(y_top-y_bot)),
+      #               sqrt(by_change_t[j,]$s/base::pi),
+      #               border = 'red',
+      #               lwd=3)
+      # }
     }
 
     dev.off()
